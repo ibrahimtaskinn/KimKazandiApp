@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_cekilisler">
+
+    <fragment
+        android:id="@+id/nav_cekilisler"
+        android:name="com.example.kimkazandiapp.ui.Cekilisler.CekilislerFragment"
+        android:label="Cekilişler"
+        tools:layout="@layout/fragment_cekilisler" />
+
+    <fragment
+        android:id="@+id/nav_yenibaslayanlar"
+        android:name="com.example.kimkazandiapp.ui.Yenibaslayanlar.YenibaslayanlarFragment"
+        android:label="Yeni Başlayanlar"
+        tools:layout="@layout/fragment_yenibaslayanlar" />
+
+    <fragment
+        android:id="@+id/nav_bedavakatilim"
+        android:name="com.example.kimkazandiapp.ui.Bedavakatilim.BedavakatilimFragment"
+        android:label="Bedava Katılım"
+        tools:layout="@layout/fragment_bedavakatilim" />
+    <fragment
+        android:id="@+id/nav_arabakazan"
+        android:name="com.example.kimkazandiapp.ui.Arabakazan.ArabakazanFragment"
+        android:label="Araba Kazan"
+        tools:layout="@layout/fragment_arabakazan" />
+    <fragment
+        android:id="@+id/nav_telefontabletkazan"
+        android:name="com.example.kimkazandiapp.ui.Telefontabletkazan.TelefontabletkazanFragment"
+        android:label="Telefon Tablet Kazan"
+        tools:layout="@layout/fragment_telefontabletkazan" />
+    <fragment
+        android:id="@+id/nav_tatilkazan"
+        android:name="com.example.kimkazandiapp.ui.Tatilkazan.TatilkazanFragment"
+        android:label="Tatil Kazan"
+        tools:layout="@layout/fragment_tatilkazan" />
+    <fragment
+        android:id="@+id/nav_takipettiklerim"
+        android:name="com.example.kimkazandiapp.ui.takipettiklerim.TakipettiklerimFragment"
+        android:label="Takip Ettiklerim"
+        tools:layout="@layout/fragment_takipettiklerim" />
+</navigation>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_cekilisler"
+            android:title="@string/cekilisler" />
+        <item
+            android:id="@+id/nav_yenibaslayanlar"
+            android:title="@string/yeni_baslayanlar" />
+        <item
+            android:id="@+id/nav_bedavakatilim"
+            android:title="@string/bedava_katilim" />
+        <item
+            android:id="@+id/nav_arabakazan"
+            android:title="@string/araba_kazan" />
+        <item
+            android:id="@+id/nav_telefontabletkazan"
+            android:title="@string/telefon_tablet_kazan" />
+        <item
+            android:id="@+id/nav_tatilkazan"
+            android:title="@string/tatil_kazan" />
+        <item
+            android:id="@+id/nav_takipettiklerim"
+            android:title="@string/takip_ettiklerim" />
+    </group>
+</menu>
