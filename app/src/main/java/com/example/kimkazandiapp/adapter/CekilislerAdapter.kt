@@ -9,8 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.databinding.RecylerviewItemBinding
 
-
-class CekilislerAdapter : ListAdapter<Data, CekilislerAdapter.CekilislerViewHolder>(DiffCallback()) {
+class CekilislerAdapter(private val listener: OnItemClickListener? = null) : ListAdapter<Data, CekilislerAdapter.CekilislerViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CekilislerViewHolder {
         val binding = RecylerviewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,6 +22,17 @@ class CekilislerAdapter : ListAdapter<Data, CekilislerAdapter.CekilislerViewHold
     }
 
     inner class CekilislerViewHolder(private val binding: RecylerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val data = getItem(position)
+                    listener?.onItemClick(data)
+                }
+            }
+        }
+
         fun bind(data: Data) {
             binding.apply {
                 titleTxt.text = data.title
@@ -45,5 +55,9 @@ class CekilislerAdapter : ListAdapter<Data, CekilislerAdapter.CekilislerViewHold
         override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
             return oldItem == newItem
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(data: Data)
     }
 }

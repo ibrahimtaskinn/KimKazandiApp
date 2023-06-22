@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kimkazandiapp.adapter.CekilislerAdapter
 import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.databinding.FragmentYenibaslayanlarBinding
 import com.example.kimkazandiapp.services.Jsoupservice
+import com.example.kimkazandiapp.ui.Telefontabletkazan.TelefontabletkazanFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class YenibaslayanlarFragment : Fragment() {
+class YenibaslayanlarFragment : Fragment(), CekilislerAdapter.OnItemClickListener {
     private var _binding: FragmentYenibaslayanlarBinding? = null
     private val binding get() = _binding!!
 
@@ -51,7 +52,7 @@ class YenibaslayanlarFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        cekilislerAdapter = CekilislerAdapter()
+        cekilislerAdapter = CekilislerAdapter(this)
         binding.yenibaslayanlarRecyclerview.apply {
             adapter = cekilislerAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -66,5 +67,10 @@ class YenibaslayanlarFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(data: Data) {
+        val action = YenibaslayanlarFragmentDirections.actionNavYenibaslayanlarToDetailFragment(data.id!!)
+        findNavController().navigate(action)
     }
 }

@@ -9,37 +9,71 @@
         android:id="@+id/nav_cekilisler"
         android:name="com.example.kimkazandiapp.ui.Cekilisler.CekilislerFragment"
         android:label="Cekilişler"
-        tools:layout="@layout/fragment_cekilisler" />
+        tools:layout="@layout/fragment_cekilisler" >
+        <action
+            android:id="@+id/action_nav_cekilisler_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_yenibaslayanlar"
         android:name="com.example.kimkazandiapp.ui.Yenibaslayanlar.YenibaslayanlarFragment"
         android:label="Yeni Başlayanlar"
-        tools:layout="@layout/fragment_yenibaslayanlar" />
+        tools:layout="@layout/fragment_yenibaslayanlar" >
+        <action
+            android:id="@+id/action_nav_yenibaslayanlar_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_bedavakatilim"
         android:name="com.example.kimkazandiapp.ui.Bedavakatilim.BedavakatilimFragment"
         android:label="Bedava Katılım"
-        tools:layout="@layout/fragment_bedavakatilim" />
+        tools:layout="@layout/fragment_bedavakatilim" >
+        <action
+            android:id="@+id/action_nav_bedavakatilim_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_arabakazan"
         android:name="com.example.kimkazandiapp.ui.Arabakazan.ArabakazanFragment"
         android:label="Araba Kazan"
-        tools:layout="@layout/fragment_arabakazan" />
+        tools:layout="@layout/fragment_arabakazan" >
+        <action
+            android:id="@+id/action_nav_arabakazan_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_telefontabletkazan"
         android:name="com.example.kimkazandiapp.ui.Telefontabletkazan.TelefontabletkazanFragment"
         android:label="Telefon Tablet Kazan"
-        tools:layout="@layout/fragment_telefontabletkazan" />
+        tools:layout="@layout/fragment_telefontabletkazan" >
+        <action
+            android:id="@+id/action_nav_telefontabletkazan_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_tatilkazan"
         android:name="com.example.kimkazandiapp.ui.Tatilkazan.TatilkazanFragment"
         android:label="Tatil Kazan"
-        tools:layout="@layout/fragment_tatilkazan" />
+        tools:layout="@layout/fragment_tatilkazan" >
+        <action
+            android:id="@+id/action_nav_tatilkazan_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_takipettiklerim"
         android:name="com.example.kimkazandiapp.ui.takipettiklerim.TakipettiklerimFragment"
         android:label="Takip Ettiklerim"
         tools:layout="@layout/fragment_takipettiklerim" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.kimkazandiapp.ui.detail.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="dataId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

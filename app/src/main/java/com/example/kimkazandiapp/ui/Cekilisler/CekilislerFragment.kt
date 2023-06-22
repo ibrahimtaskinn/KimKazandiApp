@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kimkazandiapp.adapter.CekilislerAdapter
+import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.databinding.FragmentCekilislerBinding
 import com.example.kimkazandiapp.services.Jsoupservice
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +21,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CekilislerFragment : Fragment() {
+class CekilislerFragment : Fragment(), CekilislerAdapter.OnItemClickListener {
+
     private var _binding: FragmentCekilislerBinding? = null
     private val binding get() = _binding!!
 
@@ -26,7 +30,7 @@ class CekilislerFragment : Fragment() {
     lateinit var jsoupservice: Jsoupservice
 
     private lateinit var cekilislerAdapter: CekilislerAdapter
-    private lateinit var cekilislerViewModel: CekilislerViewModel
+    private val cekilislerViewModel: CekilislerViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +43,6 @@ class CekilislerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cekilislerViewModel = ViewModelProvider(this).get(CekilislerViewModel::class.java)
 
         setupRecyclerView()
         observeData()
@@ -55,7 +58,7 @@ class CekilislerFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        cekilislerAdapter = CekilislerAdapter()
+        cekilislerAdapter = CekilislerAdapter(this)
         binding.cekilisRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.cekilisRecyclerview.adapter = cekilislerAdapter
         binding.cekilisRecyclerview.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
@@ -65,5 +68,10 @@ class CekilislerFragment : Fragment() {
         cekilislerViewModel.getFilteredData("cekilisler/ilk8").observe(viewLifecycleOwner) { dataList ->
             cekilislerAdapter.submitList(dataList)
         }
+    }
+
+    override fun onItemClick(data: Data) {
+        val action = CekilislerFragmentDirections.actionNavCekilislerToDetailFragment(data.id!!)
+        findNavController().navigate(action)
     }
 }
