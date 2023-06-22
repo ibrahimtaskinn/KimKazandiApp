@@ -5,6 +5,8 @@ import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.data.entity.DetailData
 import com.example.kimkazandiapp.data.repository.DatabaseDaoRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -182,6 +184,15 @@ class Jsoupservice @Inject constructor(private val databaseDaoRepository: Databa
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    suspend fun updateDataIfNecessary() = coroutineScope {
+        val latestTimestamp = databaseDaoRepository.getLatestTimestamp()
+        val currentTime = System.currentTimeMillis()
+        if (latestTimestamp == null || currentTime - latestTimestamp > 3 * 60 * 60 * 1000) {
+            async { cekilisler() }
+            async { cekilisturler() }
         }
     }
 }

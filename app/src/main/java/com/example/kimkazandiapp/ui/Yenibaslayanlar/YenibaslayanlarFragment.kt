@@ -45,8 +45,8 @@ class YenibaslayanlarFragment : Fragment(), CekilislerAdapter.OnItemClickListene
         setupRecyclerView()
         observeData()
 
-        CoroutineScope(Dispatchers.Main).launch {
-            jsoupservice.cekilisturler()
+        CoroutineScope(Dispatchers.IO).launch {
+            jsoupservice.updateDataIfNecessary()
         }
 
     }

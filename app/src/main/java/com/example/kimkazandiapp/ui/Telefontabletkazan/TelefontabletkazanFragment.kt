@@ -45,8 +45,8 @@ class TelefontabletkazanFragment : Fragment(), CekilislerAdapter.OnItemClickList
         setupRecyclerView()
         observeData()
 
-        CoroutineScope(Dispatchers.Main).launch {
-            jsoupservice.cekilisturler()
+        CoroutineScope(Dispatchers.IO).launch {
+            jsoupservice.updateDataIfNecessary()
         }
 
     }

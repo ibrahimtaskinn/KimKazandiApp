@@ -31,5 +31,6 @@ data class Data(
     val tur: String,
     @Embedded(prefix = "detail_")
     val detailData: DetailData,
-    var isFollowing: Boolean = false
+    var isFollowing: Boolean = false,
+    var timestamp: Long = System.currentTimeMillis(),
 )

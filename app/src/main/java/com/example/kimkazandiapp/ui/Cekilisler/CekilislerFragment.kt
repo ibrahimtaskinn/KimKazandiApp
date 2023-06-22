@@ -18,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -44,11 +45,13 @@ class CekilislerFragment : Fragment(), CekilislerAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerView()
-        observeData()
 
-        CoroutineScope(Dispatchers.Main).launch {
-            jsoupservice.cekilisler()
+        CoroutineScope(Dispatchers.IO).launch {
+            jsoupservice.updateDataIfNecessary()
+            withContext(Dispatchers.Main) {
+                observeData()
+                setupRecyclerView()
+            }
         }
     }
 

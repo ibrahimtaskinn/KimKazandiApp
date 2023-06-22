@@ -33,4 +33,7 @@ interface DatabaseDao {
 
     @Query("DELETE FROM Data WHERE id = :id")
     suspend fun deleteData(id: Int)
+
+    @Query("SELECT MAX(timestamp) FROM Data")
+    suspend fun getLatestTimestamp(): Long?
 }

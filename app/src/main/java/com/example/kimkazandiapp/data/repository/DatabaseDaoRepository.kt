@@ -24,9 +24,14 @@ class DatabaseDaoRepository @Inject constructor(private val databaseDao: Databas
     }
 
     suspend fun updateData(data: Data) {
+        data.timestamp = System.currentTimeMillis()
         databaseDao.updateData(data)
     }
 
     fun getFollowingData(): LiveData<List<Data>> = databaseDao.getFollowingData()
+
+    suspend fun getLatestTimestamp(): Long? {
+        return databaseDao.getLatestTimestamp()
+    }
 
 }

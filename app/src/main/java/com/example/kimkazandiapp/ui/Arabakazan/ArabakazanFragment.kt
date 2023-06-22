@@ -46,8 +46,8 @@ class ArabakazanFragment : Fragment(), CekilislerAdapter.OnItemClickListener {
         setupRecyclerView()
         observeData()
 
-        CoroutineScope(Dispatchers.Main).launch {
-            jsoupservice.cekilisturler()
+        CoroutineScope(Dispatchers.IO).launch {
+            jsoupservice.updateDataIfNecessary()
         }
 
     }
