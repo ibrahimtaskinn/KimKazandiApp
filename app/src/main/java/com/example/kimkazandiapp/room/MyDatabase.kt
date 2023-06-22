@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.data.entity.DetailData
 
-@Database(entities = [Data::class, DetailData::class], version = 1, exportSchema = false)
+@Database(entities = [Data::class, DetailData::class], version = 2, exportSchema = false)
 abstract class MyDatabase : RoomDatabase() {
 
     abstract fun databaseDao(): DatabaseDao
@@ -22,7 +22,9 @@ abstract class MyDatabase : RoomDatabase() {
                     context.applicationContext,
                     MyDatabase::class.java,
                     "my_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

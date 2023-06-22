@@ -42,7 +42,33 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 .load(data.imgUrl)
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(binding.imageDetail)
+
+            // Takip Et / Takipten Çıkar butonunu güncelle
+            var isFollowing = data.isFollowing
+            updateFollowButtonState(isFollowing)
+
+            // Takip Et / Takipten Çıkar butonuna tıklama işlemleri
+            binding.detailbutton.setOnClickListener {
+                if (isFollowing) {
+                    isFollowing = false
+                    viewModel.unfollowData(data)
+                } else {
+                    isFollowing = true
+                    viewModel.followData(data)
+                }
+                updateFollowButtonState(isFollowing)
+            }
         })
+    }
+
+    private fun updateFollowButtonState(isFollowing: Boolean) {
+        if (isFollowing) {
+            binding.detailbutton.text = "Takipten Çıkar"
+            binding.detailbutton.setBackgroundColor(resources.getColor(R.color.red))
+        } else {
+            binding.detailbutton.text = "Takip Et"
+            binding.detailbutton.setBackgroundColor(resources.getColor(R.color.green))
+        }
     }
 
     override fun onDestroyView() {

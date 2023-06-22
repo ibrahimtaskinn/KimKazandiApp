@@ -30,5 +30,6 @@ data class Data(
     val kosul: String,
     val tur: String,
     @Embedded(prefix = "detail_")
-    val detailData: DetailData
+    val detailData: DetailData,
+    var isFollowing: Boolean = false
 )

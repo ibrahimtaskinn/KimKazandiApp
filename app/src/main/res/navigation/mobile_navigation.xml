@@ -65,7 +65,11 @@
         android:id="@+id/nav_takipettiklerim"
         android:name="com.example.kimkazandiapp.ui.takipettiklerim.TakipettiklerimFragment"
         android:label="Takip Ettiklerim"
-        tools:layout="@layout/fragment_takipettiklerim" />
+        tools:layout="@layout/fragment_takipettiklerim" >
+        <action
+            android:id="@+id/action_nav_takipettiklerim_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.kimkazandiapp.ui.detail.DetailFragment"

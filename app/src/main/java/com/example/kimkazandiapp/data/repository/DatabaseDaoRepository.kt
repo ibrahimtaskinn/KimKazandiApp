@@ -15,10 +15,6 @@ class DatabaseDaoRepository @Inject constructor(private val databaseDao: Databas
         }
     }
 
-    fun getAllData(): LiveData<List<Data>> = liveData {
-        emit(databaseDao.getAllData())
-    }
-
     fun getFilteredData(tur: String): LiveData<List<Data>> = liveData {
         emit(databaseDao.getFilteredData(tur))
     }
@@ -27,7 +23,10 @@ class DatabaseDaoRepository @Inject constructor(private val databaseDao: Databas
         return databaseDao.getData(id)
     }
 
-    suspend fun deleteAllData() {
-        databaseDao.deleteAllData()
+    suspend fun updateData(data: Data) {
+        databaseDao.updateData(data)
     }
+
+    fun getFollowingData(): LiveData<List<Data>> = databaseDao.getFollowingData()
+
 }

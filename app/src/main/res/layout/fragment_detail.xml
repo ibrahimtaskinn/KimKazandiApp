@@ -36,6 +36,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageDetail" />
 
             <TableLayout
+                android:id="@+id/tableLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="16dp"
@@ -52,9 +53,9 @@
                         android:padding="5dp"
                         android:text="Önemli Bilgiler"
                         android:textAlignment="center"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
-                        android:textColor="@color/black" />
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -66,8 +67,8 @@
                         android:padding="5dp"
                         android:text="basTarih"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -79,8 +80,8 @@
                         android:padding="5dp"
                         android:text="sonTarih"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -92,8 +93,8 @@
                         android:padding="5dp"
                         android:text="cekTarih"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -105,8 +106,8 @@
                         android:padding="5dp"
                         android:text="ilnTarih"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -118,8 +119,8 @@
                         android:padding="5dp"
                         android:text="minharcama"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -131,8 +132,8 @@
                         android:padding="5dp"
                         android:text="hediyeDeger"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
                 <TableRow android:layout_width="match_parent">
@@ -144,8 +145,8 @@
                         android:padding="5dp"
                         android:text="hediyeSayi"
                         android:textAlignment="center"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </TableRow>
 
 
@@ -174,6 +175,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/detailbutton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

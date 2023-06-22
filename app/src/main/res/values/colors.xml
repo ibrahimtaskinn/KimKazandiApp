@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cascading_white">#f9f5f5</color>
+    <color name="red">#F80404</color>
+    <color name="green">#28F803</color>
+    <color name="blue">#0338F8</color>
 </resources>

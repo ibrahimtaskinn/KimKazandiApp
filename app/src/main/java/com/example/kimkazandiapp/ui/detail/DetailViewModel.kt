@@ -24,4 +24,20 @@ class DetailViewModel @Inject constructor(
             _data.postValue(data)
         }
     }
+
+    fun followData(data: Data) {
+        viewModelScope.launch {
+            data.isFollowing = true
+            databaseDaoRepository.updateData(data)
+            _data.postValue(data)
+        }
+    }
+
+    fun unfollowData(data: Data) {
+        viewModelScope.launch {
+            data.isFollowing = false
+            databaseDaoRepository.updateData(data)
+            _data.postValue(data)
+        }
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.kimkazandiapp.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -12,9 +14,6 @@ interface DatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(data: Data)
-
-    @Query("SELECT * FROM Data")
-    suspend fun getAllData(): List<Data>
 
     @Query("SELECT * FROM Data WHERE tur = :tur")
     suspend fun getFilteredData(tur: String): List<Data>
@@ -28,6 +27,10 @@ interface DatabaseDao {
     @Update
     suspend fun updateData(data: Data)
 
-    @Query("DELETE FROM Data")
-    suspend fun deleteAllData()
+
+    @Query("SELECT * FROM Data WHERE isFollowing = 1")
+    fun getFollowingData(): LiveData<List<Data>>
+
+    @Query("DELETE FROM Data WHERE id = :id")
+    suspend fun deleteData(id: Int)
 }
