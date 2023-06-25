@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kimkazandiapp.adapter.CekilislerAdapter
 import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.databinding.FragmentTakipettiklerimBinding
-import com.example.kimkazandiapp.ui.Cekilisler.CekilislerFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

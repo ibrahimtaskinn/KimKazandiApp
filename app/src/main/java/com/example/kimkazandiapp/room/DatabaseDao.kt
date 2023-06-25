@@ -27,13 +27,12 @@ interface DatabaseDao {
     @Update
     suspend fun updateData(data: Data)
 
-
     @Query("SELECT * FROM Data WHERE isFollowing = 1")
     fun getFollowingData(): LiveData<List<Data>>
 
-    @Query("DELETE FROM Data WHERE id = :id")
-    suspend fun deleteData(id: Int)
 
     @Query("SELECT MAX(timestamp) FROM Data")
     suspend fun getLatestTimestamp(): Long?
+
+
 }

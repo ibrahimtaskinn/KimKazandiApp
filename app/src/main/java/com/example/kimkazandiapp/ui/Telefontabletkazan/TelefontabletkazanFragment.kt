@@ -12,7 +12,6 @@ import com.example.kimkazandiapp.adapter.CekilislerAdapter
 import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.databinding.FragmentTelefontabletkazanBinding
 import com.example.kimkazandiapp.services.Jsoupservice
-import com.example.kimkazandiapp.ui.Tatilkazan.TatilkazanFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

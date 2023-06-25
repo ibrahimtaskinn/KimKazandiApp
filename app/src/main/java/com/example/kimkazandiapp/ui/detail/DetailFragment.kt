@@ -40,14 +40,13 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
             Glide.with(requireContext())
                 .load(data.imgUrl)
-                .placeholder(R.drawable.ic_launcher_background)
                 .into(binding.imageDetail)
 
-            // Takip Et / Takipten Çıkar butonunu güncelle
+
             var isFollowing = data.isFollowing
             updateFollowButtonState(isFollowing)
 
-            // Takip Et / Takipten Çıkar butonuna tıklama işlemleri
+
             binding.detailbutton.setOnClickListener {
                 if (isFollowing) {
                     isFollowing = false

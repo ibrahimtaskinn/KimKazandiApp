@@ -129,7 +129,7 @@ class Jsoupservice @Inject constructor(private val databaseDaoRepository: Databa
         }
     }
 
-    // Seçili sayfasalarda tüm çekilişleri getirir
+    // Seçili sayfalarda tüm çekilişleri getirir
     suspend fun cekilisturler() {
         withContext(Dispatchers.IO) {
             try {
