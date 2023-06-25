@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.kimkazandiapp.data.entity.Data
 import com.example.kimkazandiapp.data.entity.DetailData
 
-@Database(entities = [Data::class, DetailData::class], version = 2, exportSchema = false)
+@Database(entities = [Data::class, DetailData::class], version = 3, exportSchema = false)
 abstract class MyDatabase : RoomDatabase() {
 
     abstract fun databaseDao(): DatabaseDao
